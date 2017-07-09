@@ -1,15 +1,19 @@
 import Header from './Header';
 import React from 'react';
 
-const App = React.createClass({
+class App extends React.Component{
+  state = { pageHeader: 'Naming Contest!'};
   render(){
     return (
       <div className="App">
-        <Header message="Naming Contest!" />
+        <Header message={this.state.pageHeader} />
+        <div>
+          ...
+        </div>
       </div>
     );
   }
 
-});
+}
 
 export default App;
