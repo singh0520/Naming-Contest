@@ -1,5 +1,6 @@
 import Header from './Header';
 import React from 'react';
+import contestPreview from './contestPreview';
 
 class App extends React.Component{
   state = { pageHeader: 'Naming Contest!'};
@@ -8,7 +9,7 @@ class App extends React.Component{
       <div className="App">
         <Header message={this.state.pageHeader} />
         <div>
-          ...
+          <contestPreview {...this.props.contests[0]} />
         </div>
       </div>
     );

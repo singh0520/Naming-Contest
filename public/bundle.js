@@ -57,13 +57,20 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _App = __webpack_require__(/*! ./components/App */ 184);
+	var _testData = __webpack_require__(/*! ./testData */ 184);
+	
+	var _testData2 = _interopRequireDefault(_testData);
+	
+	var _App = __webpack_require__(/*! ./components/App */ 185);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
+	console.log(_testData2.default.contests);
+	
+	
+	_reactDom2.default.render(_react2.default.createElement(_App2.default, { contests: _testData2.default.contests }), document.getElementById('root'));
 
 /***/ }),
 /* 1 */
@@ -22629,6 +22636,38 @@
 
 /***/ }),
 /* 184 */
+/*!***************************!*\
+  !*** ./src/testData.json ***!
+  \***************************/
+/***/ (function(module, exports) {
+
+	module.exports = {
+		"contests": [
+			{
+				"id": 1,
+				"categoryName": "Business/Company",
+				"contestName": "Cognitive Building Bricks"
+			},
+			{
+				"id": 2,
+				"categoryName": "Magazine/Newsletter",
+				"contestName": "Educating people about sustainable food production"
+			},
+			{
+				"id": 3,
+				"categoryName": "Software Component",
+				"contestName": "Big Data Analytics for Cash Circulation"
+			},
+			{
+				"id": 4,
+				"categoryName": "Website",
+				"contestName": "Free programming books"
+			}
+		]
+	};
+
+/***/ }),
+/* 185 */
 /*!*******************************!*\
   !*** ./src/components/App.js ***!
   \*******************************/
@@ -22642,13 +22681,17 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _Header = __webpack_require__(/*! ./Header */ 185);
+	var _Header = __webpack_require__(/*! ./Header */ 186);
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
 	var _react = __webpack_require__(/*! react */ 1);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _contestPreview = __webpack_require__(/*! ./contestPreview */ 187);
+	
+	var _contestPreview2 = _interopRequireDefault(_contestPreview);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -22685,7 +22728,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          null,
-	          '...'
+	          _react2.default.createElement('contestPreview', this.props.contests[0])
 	        )
 	      );
 	    }
@@ -22697,7 +22740,7 @@
 	exports.default = App;
 
 /***/ }),
-/* 185 */
+/* 186 */
 /*!**********************************!*\
   !*** ./src/components/Header.js ***!
   \**********************************/
@@ -22727,6 +22770,44 @@
 	});
 	
 	exports.default = Header;
+
+/***/ }),
+/* 187 */
+/*!******************************************!*\
+  !*** ./src/components/contestPreview.js ***!
+  \******************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var contestPreview = function contestPreview(contest) {
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "contestPreview" },
+	    _react2.default.createElement(
+	      "div",
+	      null,
+	      contest.categoryName
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      null,
+	      contest.contestName
+	    )
+	  );
+	};
+	
+	exports.default = contestPreview;
 
 /***/ })
 /******/ ]);
