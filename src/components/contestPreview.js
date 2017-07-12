@@ -1,14 +1,14 @@
 import React from 'react';
 
-const contestPreview = (contest) => (
-  <div className="contestPreview">
-    <div>
+const ContestPreview = (contest) => (
+  <div className="ContestPreview">
+    <div className="category-name">
       {contest.categoryName}
     </div>
-    <div>
+    <div className="contest-name">
       {contest.contestName}
     </div>
   </div>
 );
 
-export default contestPreview;
+export default ContestPreview;
