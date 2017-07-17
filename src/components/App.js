@@ -1,7 +1,7 @@
 import Header from './Header';
 import React from 'react';
-import axios from 'axios';
-import ContestPreview from './ContestPreview';
+import contestList from './contestList';
+
 
 class App extends React.Component{
   state = {
@@ -9,26 +9,16 @@ class App extends React.Component{
     contests: this.props.initialContests
   };
 
-  componentDidMount(){
-    axios.get('/api/contests')
-      .then(resp => {
-        this.setState({
-          contests: resp.data.contests
-        });
-      })
-      .catch(console.error);
+  componentDidMount(){  
+
   }
 
   render(){
-    debugger;
+    //debugger;
     return (
       <div className="App">
         <Header message={this.state.pageHeader} />
-        <div>
-        {this.state.contests.map(contest =>
-                    <ContestPreview key={contest.id} {...contest} />
-                   )}
-        </div>
+        <contestList contests = {this.state.contests}/>
       </div>
     );
   }
