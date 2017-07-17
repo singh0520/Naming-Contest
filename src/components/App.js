@@ -1,28 +1,26 @@
-import Header from './Header';
 import React from 'react';
-import contestList from './contestList';
+import Header from './Header';
+import ContestList from './ContestList';
 
-
-class App extends React.Component{
+class App extends React.Component {
   state = {
-    pageHeader: 'Naming Contest!',
+    pageHeader: 'Naming Contests',
     contests: this.props.initialContests
   };
-
-  componentDidMount(){  
+  componentDidMount() {
 
   }
-
-  render(){
-    //debugger;
+  componentWillUnmount() {
+    // clean timers, listeners
+  }
+  render() {
     return (
       <div className="App">
         <Header message={this.state.pageHeader} />
-        <contestList contests = {this.state.contests}/>
+        <ContestList contests={this.state.contests} />
       </div>
     );
   }
-
 }
 
- export default App;
+export default App;

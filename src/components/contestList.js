@@ -1,16 +1,16 @@
 import React from 'react';
 import ContestPreview from './ContestPreview';
 
-const contestList = ({contests}) => (
+const ContestList = ({ contests }) => (
   <div className="contestList">
-  {this.state.contests.map(contest =>
-              <ContestPreview key={contest.id} {...contest} />
-             )}
+    {contests.map(contest =>
+      <ContestPreview key={contest.id} {...contest} />
+    )}
   </div>
 );
 
-contestList.propTypes = {
+ContestList.propTypes = {
   contests: React.PropTypes.array
 };
 
-export default contestList;
+export default ContestList;
